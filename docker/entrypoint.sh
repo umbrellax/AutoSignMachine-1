@@ -14,7 +14,8 @@ if [ ${enable_iqiyi} ];then
 fi
 
 if [ ${enable_unicom} ];then
-  echo "*/30 7-22 * * *       node /AutoSignMachine/index.js unicom --cookies ${cookies} --user ${user} --password ${password} --appid ${appid}" >> /var/spool/cron/crontabs/root
+  echo "*/30 1,2,4,5,7,8,10,11,13,14,16,17,19,20,22,23 * * *       node /AutoSignMachine/index.js unicom --cookies ${cookies} --user ${user} --password ${password} --appid ${appid} >/AutoSignMachine/log.$(date +%F)" >> /var/spool/cron/crontabs/root
+  echo "30 0-23/3 * * *       node /AutoSignMachine/index.js unicom --cookies ${cookies} --user ${user} --password ${password} --appid ${appid} --tryrun --tasks dailygameflow >/AutoSignMachine/logame.$(date +%F)" >> /var/spool/cron/crontabs/root
 fi
 
 /usr/sbin/crond -S -c /var/spool/cron/crontabs -f -L /dev/stdout
