@@ -83,7 +83,7 @@ jobs:
 
     # 运行 bilibili 签到任务
     - name: Run bilibili daily task
-      if: ${{ env.ENABLE_BILIBILI }}
+  #    if: ${{ env.ENABLE_BILIBILI }}
       env:
         DedeUserID: ${{secrets.bilibili_USERID}}
         SESSDATA: ${{secrets.bilibili_SESSDATA}}
@@ -93,7 +93,7 @@ jobs:
 
     # 运行 iqiyi 签到任务
     - name: Run iqiyi daily task
-      if: ${{ env.ENABLE_IQIYI }}
+  #    if: ${{ env.ENABLE_IQIYI }}
       env:
         P00001: ${{secrets.iqiyi_P00001}}
         P00PRU: ${{secrets.iqiyi_P00PRU}}
